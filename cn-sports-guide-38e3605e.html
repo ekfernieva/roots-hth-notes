@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f2f4f7;
+            color: #2c3e4f;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- hero --- */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e6eaef;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #1f2d3d;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4b5c6e;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #eef1f5;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3b4c5e;
+            border: 1px solid #dbe0e7;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero .cta-sentence {
+            font-size: 1rem;
+            background: #f8fafc;
+            padding: 1.2rem 1.8rem;
+            border-radius: 18px;
+            display: inline-block;
+            border: 1px solid #e1e6ed;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .hero .cta-sentence a {
+            color: #1a5b9c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dashed #9bb7d4;
+            transition: border-color .2s, color .2s;
+        }
+
+        .hero .cta-sentence a:hover {
+            border-bottom-color: #1a5b9c;
+            color: #0b3b6b;
+        }
+
+        /* --- 卡片网格通用 --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 1.8rem;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 6px 12px -6px rgba(0,20,30,0.04);
+            transition: box-shadow .15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 14px -6px rgba(0,20,30,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #7b95b0;
+            padding-left: 1rem;
+        }
+
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #334455;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #6f8ba8;
+            font-weight: 700;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #eef3f9;
+            border-radius: 30px;
+            padding: 0.15rem 0.9rem;
+            font-size: 0.75rem;
+            color: #2f4b6b;
+            border: 1px solid #d5dee9;
+            margin-top: 0.6rem;
+        }
+
+        /* --- 说明区 (单卡片宽) --- */
+        .feature-note {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .feature-note h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-note p {
+            margin-bottom: 1rem;
+        }
+
+        .feature-note .inline-link a {
+            color: #1a5b9c;
+            text-decoration: none;
+            border-bottom: 1px solid #bccddb;
+        }
+
+        .feature-note .inline-link a:hover {
+            border-bottom-color: #1a5b9c;
+        }
+
+        .feature-note .highlight-box {
+            background: #f6f9fc;
+            border-left: 5px solid #6d8aa9;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* --- FAQ摘要 --- */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1f2d3d;
+        }
+
+        .faq-item {
+            margin-bottom: 1.3rem;
+            border-bottom: 1px solid #eef1f5;
+            padding-bottom: 1.1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #1f2d3d;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .a {
+            color: #3d5165;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a a {
+            color: #1a5b9c;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd6e3;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom-color: #1a5b9c;
+        }
+
+        /* --- 底部链接 --- */
+        .footer-links {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #e6eaef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem 2rem;
+        }
+
+        .footer-links .meta {
+            color: #4b6278;
+            font-size: 0.9rem;
+        }
+
+        .footer-links .nav-links a {
+            color: #2d4b6a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin: 0 0.6rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color .15s;
+        }
+
+        .footer-links .nav-links a:hover {
+            border-bottom-color: #6b89a7;
+        }
+
+        .footer-links .main-link a {
+            color: #1a5b9c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px dashed #99b6d1;
+            font-size: 1rem;
+        }
+
+        .footer-links .main-link a:hover {
+            border-bottom-style: solid;
+            color: #0c3d64;
+        }
+
+        /* --- 响应式 --- */
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.75rem; }
+            .hero { padding: 2rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero .cta-sentence { padding: 1rem 1.2rem; font-size: 0.95rem; }
+            .feature-note { padding: 1.8rem 1.5rem; }
+            .faq-summary { padding: 1.8rem 1.5rem; }
+            .footer-links { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero -->
+    <div class="hero">
+        <div class="badge">简明指南 · 访问提醒</div>
+        <h1>MK体育：信息与索引</h1>
+        <p class="sub">保持清晰、轻量的访问路径——从域名确认到内容定位，以下提供结构化概述。</p>
+        <div class="cta-sentence">
+            通过 <a href="https://cn-sports-mkty.com">MK体育</a> 可快速了解体育资讯、赛事动态及平台服务框架。
+        </div>
+    </div>
+
+    <!-- 优势区：三卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>内容结构</h3>
+            <ul>
+                <li>赛事数据与比分概览</li>
+                <li>竞技项目分类索引</li>
+                <li>信息聚合与更新节奏</li>
+            </ul>
+            <span class="tag">结构化</span>
+        </div>
+        <div class="card">
+            <h3>访问提示</h3>
+            <ul>
+                <li>确认域名：cn-sports-mkty.com</li>
+                <li>建议使用主流浏览器</li>
+                <li>注意网络环境稳定性</li>
+            </ul>
+            <span class="tag">可用性</span>
+        </div>
+        <div class="card">
+            <h3>场景适用</h3>
+            <ul>
+                <li>赛前信息查阅</li>
+                <li>赛后数据回溯</li>
+                <li>赛事动态追踪</li>
+            </ul>
+            <span class="tag">实用性</span>
+        </div>
+    </div>
+
+    <!-- 说明区：简明指南与提醒 -->
+    <div class="feature-note">
+        <h2>使用说明与访问提醒</h2>
+        <p><strong>平台定位：</strong>基于体育内容聚合与呈现，提供结构化的赛事信息、项目分类及相关数据索引。不涉及投注、博彩或任何违规引导。</p>
+        <p><strong>域名核对：</strong>请始终在地址栏确认当前网站为 <span class="inline-link"><a href="https://cn-sports-mkty.com">MK体育</a></span>，避免进入仿冒或无关页面。推荐使用书签保存正确链接。</p>
+        <div class="highlight-box">
+            <strong>提醒：</strong>访问过程中如遇到页面加载异常、跳转提示或内容不符，请停止操作并核对域名。平台不会主动索取个人隐私或财务信息。
+        </div>
+        <p>内容更新以页面实际展示为准。建议定期访问以获取最新信息。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <div class="q">Q：MK体育主要提供哪类内容？</div>
+            <div class="a">A：以体育赛事信息、项目分类、数据概览为主，属于综合性体育内容索引。具体可通过 <a href="https://cn-sports-mkty.com">MK体育</a> 直接查阅。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：访问时需要注意什么？</div>
+            <div class="a">A：确认域名拼写正确（cn-sports-mkty.com），避免从不明来源的链接进入。平台不设自动下载或弹窗诱导。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：页面信息是否实时更新？</div>
+            <div class="a">A：内容更新频率取决于赛事周期与信息源。建议以页面实际标注时间为参考。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <div class="meta">
+            <span>MK体育 · 索引页</span>
+        </div>
+        <div class="nav-links">
+            <a href="#none">内容结构</a>
+            <span class="sep">·</span>
+            <a href="#none">访问提醒</a>
+            <span class="sep">·</span>
+            <a href="#none">常见问题</a>
+        </div>
+        <div class="main-link">
+            <a href="https://cn-sports-mkty.com">MK体育</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
