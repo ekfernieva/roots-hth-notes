@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>MK体育 · 一次次想起</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f4f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #1d2d3a;
+            padding: 24px 18px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 740px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 36px 36px 28px 28px;
+            box-shadow: 0 12px 28px rgba(7, 64, 76, 0.07);
+            padding: 32px 24px 40px;
+            transition: all 0.2s;
+        }
+        /* 蓝绿色点缀 — 网格卡片基调 */
+        .hero-tag {
+            display: inline-block;
+            background: #d9f0f5;
+            color: #116673;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-bottom: 28px;
+            border: 1px solid #b3dfe9;
+        }
+        .opening {
+            font-size: 1.9rem;
+            font-weight: 350;
+            line-height: 1.25;
+            color: #133e49;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+        .opening em {
+            font-style: normal;
+            color: #1c7b8a;
+            font-weight: 420;
+        }
+        .intro {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #2b4b57;
+            padding-right: 4px;
+        }
+        .intro a {
+            color: #1b7f8e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6dbe4;
+            transition: border 0.2s, color 0.2s;
+        }
+        .intro a:hover {
+            color: #0f5f6b;
+            border-bottom: 1px solid #1b7f8e;
+        }
+        .story-block {
+            background: #f3fafc;
+            padding: 20px 20px 16px;
+            border-radius: 28px;
+            margin: 28px 0 24px;
+            box-shadow: inset 0 1px 0 #e5f2f5, 0 4px 6px rgba(0, 30, 38, 0.02);
+        }
+        .story-block p {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: #1d3e49;
+        }
+        .story-block strong {
+            color: #115f6d;
+            font-weight: 530;
+        }
+        /* 卡片网格 —— 特点区块 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 14px;
+            margin: 32px 0 22px;
+        }
+        .card-item {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 16px 12px 14px;
+            border: 1px solid #ddeef3;
+            box-shadow: 0 2px 6px rgba(0, 55, 63, 0.03);
+            transition: border 0.15s, transform 0.15s, box-shadow 0.2s;
+        }
+        .card-item:hover {
+            border-color: #8bcbd9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px -6px rgba(7, 84, 95, 0.12);
+        }
+        .card-item .icon {
+            display: inline-block;
+            background: #d7eef4;
+            color: #0c5b68;
+            font-size: 1rem;
+            font-weight: 450;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 30px;
+            margin-bottom: 8px;
+        }
+        .card-item h3 {
+            font-size: 1.05rem;
+            font-weight: 520;
+            color: #103b45;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        .card-item p {
+            font-size: 0.88rem;
+            color: #2b535f;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .card-item .teal-tag {
+            display: inline-block;
+            margin-top: 8px;
+            background: transparent;
+            color: #1a7f8d;
+            font-size: 0.75rem;
+            font-weight: 460;
+            border: 1px solid #b0dae5;
+            padding: 2px 12px;
+            border-radius: 50px;
+        }
+        /* 温和结尾区域 */
+        .closing {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #cde3ea;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .closing-note {
+            font-size: 0.95rem;
+            color: #23515e;
+            max-width: 70%;
+        }
+        .closing-note span {
+            background: #e5f4f8;
+            padding: 1px 10px;
+            border-radius: 24px;
+            color: #0c5e6d;
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
+        .closing-link {
+            font-size: 1rem;
+            background: #dfeff5;
+            padding: 8px 22px;
+            border-radius: 60px;
+            color: #0c5967;
+            text-decoration: none;
+            font-weight: 460;
+            border: 1px solid #b7dae4;
+            transition: background 0.2s, border 0.2s;
+            white-space: nowrap;
+        }
+        .closing-link:hover {
+            background: #cbe6ef;
+            border-color: #71b6c9;
+            color: #06444f;
+        }
+        .faq-mini {
+            margin: 16px 0 6px;
+            background: #f4fafd;
+            border-radius: 24px;
+            padding: 16px 18px 10px;
+        }
+        .faq-mini details {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .faq-mini summary {
+            font-weight: 460;
+            color: #115b69;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+        .faq-mini summary::marker {
+            color: #59aaba;
+        }
+        .faq-mini p {
+            color: #1b4855;
+            margin: 6px 0 4px 12px;
+            padding-left: 6px;
+            border-left: 2px solid #b7dde8;
+        }
+        .footnote {
+            margin-top: 24px;
+            font-size: 0.75rem;
+            color: #5f8591;
+            text-align: center;
+            opacity: 0.75;
+        }
+
+        /* 移动端友好 —— 网格自适应 */
+        @media (max-width: 480px) {
+            .page {
+                padding: 22px 16px 32px;
+                border-radius: 28px;
+            }
+            .opening {
+                font-size: 1.65rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .closing {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+            .closing-note {
+                max-width: 100%;
+            }
+            .closing-link {
+                align-self: flex-start;
+            }
+        }
+        @media (max-width: 380px) {
+            .page {
+                padding: 18px 12px;
+            }
+            .hero-tag {
+                font-size: 0.7rem;
+                padding: 4px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 开场短句 -->
+    <div class="hero-tag">· 再次遇见 ·</div>
+    <div class="opening">
+        有些站点，<em>总想收进收藏夹</em>。
+    </div>
+
+    <!-- 承接段落：从再次访问与收藏切入 -->
+    <div class="intro">
+        浏览器书签栏里总有一些角落，放着那些隔段时间就想打开看看的地方。<br>
+        对我来说，<a href="https://zho-mk.com">MK体育</a> 就是其中之一。不是因为它多特别，而是因为它的节奏刚好——内容一直在更新，却始终保持自己的一套语调，不追着热点跑，也不刻意煽动情绪。每次重新打开，都像走进一个熟悉、干净的场域，信息摆在那里，你可以自己决定看多久。
+    </div>
+
+    <!-- 故事叙述块 + 收藏 / 关注线索 -->
+    <div class="story-block">
+        <p><strong>第一次收藏</strong> 是在某个周末的午后，随手点开一篇赛事回顾，发现写法利落，数据也扎实。之后慢慢养成了习惯：隔几天回来，看看有没有新文章，偶尔翻翻老内容。</p>
+        <p><strong>后来开始关注</strong> 它的动态——不是通过推送，而是主动在地址栏输入记忆中的网址。你会发现，有些地方值得你记住它的链接，而不是依赖社交媒体的转发。<br>
+        书签栏里 <strong>「MK体育」</strong> 四个字，安安静静，但每次点开都能接上之前的话题。</p>
+    </div>
+
+    <!-- 特点列表：卡片网格 (蓝绿色点缀) -->
+    <div class="feature-grid">
+        <div class="card-item">
+            <div class="icon">◈</div>
+            <h3>克制的内容</h3>
+            <p>不夸大，不渲染，每篇都像在跟你坐下来聊一段赛况。数据、背景、观点，层次分明。</p>
+            <span class="teal-tag">信息密度适中</span>
+        </div>
+        <div class="card-item">
+            <div class="icon">◈</div>
+            <h3>固定的角落</h3>
+            <p>界面干净，没有漂浮的弹窗和杂音。每次访问都不用重新适应，像回到一个稳定的空间。</p>
+            <span class="teal-tag">熟悉感</span>
+        </div>
+        <div class="card-item">
+            <div class="icon">◈</div>
+            <h3>收藏与回访</h3>
+            <p>适合放进取收藏夹的网址不多，它算一个。不必担心打开后是满屏广告或空洞标题。</p>
+            <span class="teal-tag">值得记住</span>
+        </div>
+        <div class="card-item">
+            <div class="icon">◈</div>
+            <h3>持续的关注</h3>
+            <p>不用每天刷，但每隔一阵总想回来看看。有新的文章，也有过去读过的篇目，像老朋友。</p>
+            <span class="teal-tag">细水长流</span>
+        </div>
+    </div>
+
+    <!-- 温和的 FAQ 片段 (摘要式) -->
+    <div class="faq-mini">
+        <details>
+            <summary>为什么一直把它留在收藏夹里？</summary>
+            <p>可能是因为它不吵。多数体育类站点倾向于把信息塞满每一寸屏幕，但 MK体育 留白多、语气稳，读起来不累。适合慢慢看，也适合快速浏览。</p>
+        </details>
+        <details>
+            <summary>多久回访一次比较合适？</summary>
+            <p>因人而异。有人每周看两三次，有人隔十天半个月。它的更新频率不算密集，但每篇都值得点开，所以按自己的节奏来就好。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 + 指向 MK体育 的 a 标签（自然嵌入句子） -->
+    <div class="closing">
+        <div class="closing-note">
+            <span>📎</span> 如果你也喜欢不紧不慢地读体育内容，不妨试着重温 <a href="https://zho-mk.com" style="color:#166c7a; text-decoration:none; border-bottom:1px solid #96cbd9; font-weight:470;">MK体育</a>。
+        </div>
+        <a href="https://zho-mk.com" class="closing-link">MK体育</a>
+    </div>
+
+    <!-- 极简脚注，融入种子变化（不显示种子内容，仅为氛围） -->
+    <div class="footnote">
+        · 页面节奏来自收藏夹的缝隙 ·
+    </div>
+</div>
+</body>
+</html>
